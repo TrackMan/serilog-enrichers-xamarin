@@ -1,8 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>serilog_enrichers_xamarin</RootNamespace>
+    <TargetFrameworks>Xamarin.iOS10;MonoAndroid81;</TargetFrameworks>
+    <AssemblyName>Serilog.Enrichers.Xamarin</AssemblyName>
+    <PackageId>Serilog.Enrichers.Xamarin</PackageId>
+    <RootNamespace>Serilog</RootNamespace>
+    <Description>Serilog Enrichers for Xamarin Apps</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="platforms\**\*.cs" />
+    <None Include="platforms\**\*.cs" />
+    <None Include="Resources\*.cs" />
+    <Compile Remove="Resources\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+    <Compile Include="platforms\apple\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <Compile Include="platforms\android\**\*.cs" />
+    <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="2.7.1" />
+  </ItemGroup>
 
 </Project>
