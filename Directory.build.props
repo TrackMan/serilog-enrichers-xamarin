@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <Copyright>Copyright (c) TrackMan</Copyright>
-    <PackageLicenseUrl>https://opensource.org/licenses/ms-pl</PackageLicenseUrl>
+    <PackageLicenseUrl>https://opensource.org/licenses/mit</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/TrackMan/serilog-enrichers-xamarin</PackageProjectUrl>
     <PackageIconUrl>https://i.imgur.com/Wnci3GJ.png</PackageIconUrl>
     <Authors>Cheesebaron</Authors>
