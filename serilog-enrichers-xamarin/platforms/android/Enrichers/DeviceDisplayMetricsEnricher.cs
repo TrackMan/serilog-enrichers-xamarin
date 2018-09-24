@@ -14,12 +14,11 @@ namespace Serilog.Enrichers
     {
         LogEventProperty _cachedProperty;
 
-        public const string AndroidDeviceDisplayMetricsPropertyName = "AndroidDeviceDisplayMetrics";
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             _cachedProperty = _cachedProperty ??
-                propertyFactory.CreateProperty(AndroidDeviceDisplayMetricsPropertyName, GetDisplayMetrics());
+                propertyFactory.CreateProperty(Constants.DisplayMetricsPropertyName, GetDisplayMetrics());
             logEvent.AddPropertyIfAbsent(_cachedProperty);
         }
 

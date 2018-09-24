@@ -11,12 +11,10 @@ namespace Serilog.Enrichers
     {
         LogEventProperty _cachedProperty;
 
-        public const string AppleDeviceIdPropertyName = "AppleDeviceName";
-
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             _cachedProperty = _cachedProperty ??
-                propertyFactory.CreateProperty(AppleDeviceIdPropertyName,
+                propertyFactory.CreateProperty(Constants.DeviceNamePropertyName,
                 UIDevice.CurrentDevice.Name);
             logEvent.AddPropertyIfAbsent(_cachedProperty);
         }
