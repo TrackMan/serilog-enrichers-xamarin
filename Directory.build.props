@@ -9,6 +9,26 @@
     <PackageTags>Seriolog;Enricher;Xamarin</PackageTags>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageReleaseNotes>
+# 0.1.0
+Initial release for Xamarin.iOS and Xamarin.Android.
+
+On iOS there are enrichers for:
+- DisplayMetrics
+- SystemVersion
+- DeviceModel
+- DeviceId
+- DeviceName
+
+On Android there are enrichers for:
+- DisplayMetrics
+- FirmwareVersion
+- HardwareVersion
+- DeviceId
+- DeviceName
+- ManufacturerName
+- DeviceOrientation
+    </PackageReleaseNotes>
     <RepositoryUrl>https://github.com/TrackMan/serilog-enrichers-xamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
