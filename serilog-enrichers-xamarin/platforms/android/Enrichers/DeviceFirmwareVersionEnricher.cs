@@ -11,12 +11,11 @@ namespace Serilog.Enrichers
     {
         LogEventProperty _cachedProperty;
 
-        public const string AndroidFirmwareVersionPropertyName = "AndroidFirmwareVersion";
-
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             _cachedProperty = _cachedProperty ??
-                propertyFactory.CreateProperty(AndroidFirmwareVersionPropertyName, Build.VERSION.Release);
+                propertyFactory.CreateProperty(Constants.FirmwareVersionPropertyName, 
+                Build.VERSION.Release);
             logEvent.AddPropertyIfAbsent(_cachedProperty);
         }
     }

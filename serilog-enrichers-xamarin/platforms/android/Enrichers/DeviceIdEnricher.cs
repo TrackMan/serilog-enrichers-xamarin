@@ -14,12 +14,11 @@ namespace Serilog.Enrichers
     {
         LogEventProperty _cachedProperty;
 
-        public const string AndroidDeviceIdPropertyName = "AndroidDeviceId";
-        
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             _cachedProperty = _cachedProperty ?? 
-                propertyFactory.CreateProperty(AndroidDeviceIdPropertyName, GetAndroidDeviceId());
+                propertyFactory.CreateProperty(Constants.DeviceIdPropertyName, 
+                GetAndroidDeviceId());
             logEvent.AddPropertyIfAbsent(_cachedProperty);
         }
 

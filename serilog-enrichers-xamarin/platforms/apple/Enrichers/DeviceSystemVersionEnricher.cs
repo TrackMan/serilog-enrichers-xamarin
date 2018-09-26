@@ -11,12 +11,10 @@ namespace Serilog.Enrichers
     {
         LogEventProperty _cachedProperty;
 
-        public const string AppleDeviceSystemVersionPropertyName = "AppleDeviceSystemVersion";
-
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             _cachedProperty = _cachedProperty ??
-                propertyFactory.CreateProperty(AppleDeviceSystemVersionPropertyName,
+                propertyFactory.CreateProperty(Constants.DeviceSystemVersionPropertyName,
                 UIDevice.CurrentDevice.SystemVersion);
             logEvent.AddPropertyIfAbsent(_cachedProperty);
         }

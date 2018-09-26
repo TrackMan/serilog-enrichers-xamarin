@@ -11,11 +11,10 @@ namespace Serilog.Enrichers
     /// </summary>
     public class DeviceOrientationEnricher : ILogEventEnricher
     {
-        public const string AndroidDeviceOrientationPropertyName = "AndroidDeviceOrientation";
-
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            var property = propertyFactory.CreateProperty(AndroidDeviceOrientationPropertyName, GetDeviceOrientation());
+            var property = propertyFactory.CreateProperty(
+                Constants.DeviceOrientationPropertyName, GetDeviceOrientation());
             logEvent.AddPropertyIfAbsent(property);
         }
 

@@ -11,12 +11,10 @@ namespace Serilog.Enrichers
     {
         LogEventProperty _cachedProperty;
 
-        public const string AppleDeviceDisplayMetricsPropertyName = "AppleDeviceDisplayMetrics";
-
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             _cachedProperty = _cachedProperty ??
-                propertyFactory.CreateProperty(AppleDeviceDisplayMetricsPropertyName,
+                propertyFactory.CreateProperty(Constants.DisplayMetricsPropertyName,
                 UIDevice.CurrentDevice.Model);
             logEvent.AddPropertyIfAbsent(_cachedProperty);
         }
