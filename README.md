@@ -1,5 +1,6 @@
 # Serilog Enrichers for Xamarin
 [![Build status](https://osteost.visualstudio.com/serilog-enrichers-xamarin/_apis/build/status/serilog-enrichers-xamarin-CI)](https://osteost.visualstudio.com/serilog-enrichers-xamarin/_build/latest?definitionId=5)
+[![NuGet](https://img.shields.io/nuget/v/Serilog.Enrichers.Xamarin.svg)](https://www.nuget.org/packages/Serilog.Enrichers.Xamarin)
 
 Xamarin Android and iOS Device information enrichment for Serilog
 
