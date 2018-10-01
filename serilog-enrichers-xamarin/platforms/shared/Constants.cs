@@ -11,5 +11,9 @@
         public const string DeviceOrientationPropertyName = "DeviceOrientation";
         public const string DeviceModelPropertyName = "DeviceModel";
         public const string DeviceSystemVersionPropertyName = "DeviceSystemVersion";
+
+        public const string PackageNamePropertyName = "PackageName";
+        public const string PackageVersionNamePropertyName = "PackageVersionName";
+        public const string PackageVersionCodePropertyName = "PackageVersionCode";
     }
 }
