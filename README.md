@@ -20,13 +20,16 @@ var configuration = new LoggerConfiguration()
     .Enrich.WithDeviceName()         // Adds `DeviceName` property
     .Enrich.WithManufacturerName()   // Adds `DeviceManufacturer` property
     .Enrich.WithDeviceOrientation()  // Adds `DeviceOrientation` property (can be expensive since it is not cached)
+    .Enrich.WithPackageName()        // Adds `PackageName` property
+    .Enrich.WithPackageVersionName() // Adds `PackageVersionName` property
+    .Enrich.WithPackageVersionCode() // Adds `PackageVersionCode` property
     
     // iOS
     .Enrich.WithDisplayMetrics()     // Adds `DisplayMetrics` property
     .Enrich.WithSystemVersion()      // Adds `DeviceSystemVersion` property
     .Enrich.WithDeviceModel()        // Adds `DisplayModel` property
     .Enrich.WithDeviceId()           // Adds `DisplayId` property
-    .Enrich.WithDeviceName();        // Adds `DisplayName` property
+    .Enrich.WithDeviceName()         // Adds `DisplayName` property
 ```
 
 # License
