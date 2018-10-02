@@ -1,5 +1,6 @@
 # Serilog Enrichers for Xamarin
 [![Build status](https://osteost.visualstudio.com/serilog-enrichers-xamarin/_apis/build/status/serilog-enrichers-xamarin-CI)](https://osteost.visualstudio.com/serilog-enrichers-xamarin/_build/latest?definitionId=5)
+[![NuGet](https://img.shields.io/nuget/v/Serilog.Enrichers.Xamarin.svg)](https://www.nuget.org/packages/Serilog.Enrichers.Xamarin)
 
 Xamarin Android and iOS Device information enrichment for Serilog
 
@@ -19,13 +20,19 @@ var configuration = new LoggerConfiguration()
     .Enrich.WithDeviceName()         // Adds `DeviceName` property
     .Enrich.WithManufacturerName()   // Adds `DeviceManufacturer` property
     .Enrich.WithDeviceOrientation()  // Adds `DeviceOrientation` property (can be expensive since it is not cached)
+    .Enrich.WithPackageName()        // Adds `PackageName` property
+    .Enrich.WithPackageVersionName() // Adds `PackageVersionName` property
+    .Enrich.WithPackageVersionCode() // Adds `PackageVersionCode` property
     
     // iOS
     .Enrich.WithDisplayMetrics()     // Adds `DisplayMetrics` property
     .Enrich.WithSystemVersion()      // Adds `DeviceSystemVersion` property
     .Enrich.WithDeviceModel()        // Adds `DisplayModel` property
     .Enrich.WithDeviceId()           // Adds `DisplayId` property
-    .Enrich.WithDeviceName();        // Adds `DisplayName` property
+    .Enrich.WithDeviceName()         // Adds `DisplayName` property
+    .Enrich.WithPackageName()        // Adds `PackageName` property (CFBundleName)
+    .Enrich.WithPackageVersionName() // Adds `PackageVersionName` property (CFBundleShortVersionString)
+    .Enrich.WithPackageVersionCode() // Adds `PackageVersionCode` property (CFBundleVersion)
 ```
 
 # License

@@ -68,5 +68,41 @@ namespace Serilog
             if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
             return enrichment.With<DeviceNameEnricher>();
         }
+
+        /// <summary>
+        /// Enrich log events with IPA Bundle Identifier
+        /// </summary>
+        /// <param name="enrichment">Logger enrichment configuration.</param>
+        /// <returns>Configuration object allowing method chaining.</returns>
+        public static LoggerConfiguration WithPackageName(
+            this LoggerEnrichmentConfiguration enrichment)
+        {
+            if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
+            return enrichment.With<PackageNameEnricher>();
+        }
+
+        /// <summary>
+        /// Enrich log events with IPA Bundle Version
+        /// </summary>
+        /// <param name="enrichment">Logger enrichment configuration.</param>
+        /// <returns>Configuration object allowing method chaining.</returns>
+        public static LoggerConfiguration WithPackageVersionName(
+            this LoggerEnrichmentConfiguration enrichment)
+        {
+            if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
+            return enrichment.With<PackageVersionNameEnricher>();
+        }
+
+        /// <summary>
+        /// Enrich log events with IPA Bundle Short Version
+        /// </summary>
+        /// <param name="enrichment">Logger enrichment configuration.</param>
+        /// <returns>Configuration object allowing method chaining.</returns>
+        public static LoggerConfiguration WithPackageVersionCode(
+            this LoggerEnrichmentConfiguration enrichment)
+        {
+            if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
+            return enrichment.With<PackageVersionCodeEnricher>();
+        }
     }
 }

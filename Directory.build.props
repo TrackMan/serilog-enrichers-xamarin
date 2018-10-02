@@ -10,6 +10,12 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageReleaseNotes>
+# 0.2.0
+Added additional enrichers for Android and iOS to get
+- PackageName
+- PackageVersionName
+- PackageVersionCode
+
 # 0.1.0
 Initial release for Xamarin.iOS and Xamarin.Android.
 
