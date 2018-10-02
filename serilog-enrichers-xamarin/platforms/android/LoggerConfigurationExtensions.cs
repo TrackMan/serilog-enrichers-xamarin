@@ -92,5 +92,41 @@ namespace Serilog
             if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
             return enrichment.With<DeviceOrientationEnricher>();
         }
+
+        /// <summary>
+        /// Enrich log events with Package Name for the Android App
+        /// </summary>
+        /// <param name="enrichment">Logger enrichment configuration.</param>
+        /// <returns>Configuration object allowing method chaining.</returns>
+        public static LoggerConfiguration WithPackageName(
+            this LoggerEnrichmentConfiguration enrichment)
+        {
+            if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
+            return enrichment.With<PackageNameEnricher>();
+        }
+
+        /// <summary>
+        /// Enrich log events with Package Version Name for the Android App
+        /// </summary>
+        /// <param name="enrichment">Logger enrichment configuration.</param>
+        /// <returns>Configuration object allowing method chaining.</returns>
+        public static LoggerConfiguration WithPackageVersionName(
+            this LoggerEnrichmentConfiguration enrichment)
+        {
+            if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
+            return enrichment.With<PackageVersionNameEnricher>();
+        }
+
+        /// <summary>
+        /// Enrich log events with Package Version Code for the Android App
+        /// </summary>
+        /// <param name="enrichment">Logger enrichment configuration.</param>
+        /// <returns>Configuration object allowing method chaining.</returns>
+        public static LoggerConfiguration WithPackageVersionCode(
+            this LoggerEnrichmentConfiguration enrichment)
+        {
+            if (enrichment == null) throw new ArgumentNullException(nameof(enrichment));
+            return enrichment.With<PackageVersionCodeEnricher>();
+        }
     }
 }
