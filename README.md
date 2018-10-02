@@ -30,6 +30,9 @@ var configuration = new LoggerConfiguration()
     .Enrich.WithDeviceModel()        // Adds `DisplayModel` property
     .Enrich.WithDeviceId()           // Adds `DisplayId` property
     .Enrich.WithDeviceName()         // Adds `DisplayName` property
+    .Enrich.WithPackageName()        // Adds `PackageName` property
+    .Enrich.WithPackageVersionName() // Adds `PackageVersionName` property
+    .Enrich.WithPackageVersionCode() // Adds `PackageVersionCode` property
 ```
 
 # License
