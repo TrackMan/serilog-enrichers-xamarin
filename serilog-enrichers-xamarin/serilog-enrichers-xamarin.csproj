@@ -6,14 +6,9 @@
     <PackageId>Serilog.Enrichers.Xamarin</PackageId>
     <RootNamespace>Serilog</RootNamespace>
     <Description>Serilog Enrichers for Xamarin Apps</Description>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="platforms\**\*.cs" />
-    <None Include="platforms\**\*.cs" />
-    <None Include="Resources\*.cs" />
-    <Compile Remove="Resources\*.cs" />
-  </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
     <Compile Include="platforms\apple\**\*.cs" />
@@ -23,8 +18,11 @@
   <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
     <Compile Include="platforms\android\**\*.cs" />
     <Compile Include="platforms\shared\**\*.cs" />
-    <AndroidResource Include="Resources\**\*.xml" SubType="Designer" Generator="MSBuild:UpdateAndroidResources" />
   </ItemGroup>
+
+  <PropertyGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+    <AndroidUseIntermediateDesignerFile>False</AndroidUseIntermediateDesignerFile>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.8.0" />
