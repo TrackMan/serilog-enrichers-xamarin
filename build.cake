@@ -127,5 +127,12 @@ MSBuildSettings GetDefaultBuildSettings()
         ToolVersion = MSBuildToolVersion.VS2019
     };
 
+    // workaround for borked VS2019 image
+    if (IsRunningOnWindows())
+    {
+        var jdkDir = EnvironmentVariable<string>("JAVA_HOME_8_X64", string.Empty);
+        settings = settings.WithProperty("JavaSdkDirectory", new [] { jdkDir });
+    }
+
     return settings;
 }
