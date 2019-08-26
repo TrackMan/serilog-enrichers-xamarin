@@ -331,4 +331,5 @@ ASALocalRun/
 
 # Cake build
 tools/
+!tools/packages.config
 artifacts/

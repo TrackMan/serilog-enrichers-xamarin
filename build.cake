@@ -1,6 +1,6 @@
-#addin nuget:?package=Cake.Figlet
-#tool nuget:?package=vswhere
-#tool nuget:?package=GitVersion.CommandLine
+#addin nuget:?package=Cake.Figlet&version=1.3.1
+#tool nuget:?package=vswhere&version=2.7.1
+#tool nuget:?package=GitVersion.CommandLine&version=5.0.1
 
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
@@ -64,7 +64,7 @@ Task("ResolveBuildTools")
     var vsLatest = VSWhereLatest(vsWhereSettings);
     msBuildPath = (vsLatest == null)
         ? null
-        : vsLatest.CombineWithFilePath("./MSBuild/15.0/Bin/MSBuild.exe");
+        : vsLatest.CombineWithFilePath("./MSBuild/Current/Bin/MSBuild.exe");
 
     if (msBuildPath != null)
         Information("Found MSBuild at {0}", msBuildPath.ToString());
@@ -100,7 +100,11 @@ Task("CopyPackages")
     .Does(() => 
 {
     var nugetFiles = GetFiles("./serilog-enrichers-xamarin/bin/" + configuration + "/**/*.nupkg");
-    CopyFiles(nugetFiles, outputDir);
+    foreach(var file in nugetFiles)
+    {
+        Information($"Copying artifact {file.FullPath} to {outputDir.FullPath}");
+        CopyFileToDirectory(file, outputDir);
+    }
 });
 
 Task("Default")
@@ -120,7 +124,7 @@ MSBuildSettings GetDefaultBuildSettings()
         ToolPath = msBuildPath,
         Verbosity = verbosity,
         ArgumentCustomization = args => args.Append("/m"),
-        ToolVersion = MSBuildToolVersion.VS2017
+        ToolVersion = MSBuildToolVersion.VS2019
     };
 
     return settings;
